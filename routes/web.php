@@ -124,6 +124,14 @@ Route::post('/insert-delivery', 'DeliveryController@insert_delivery');
 Route::post('/select-feeship', 'DeliveryController@select_feeship');
 Route::post('/update-delivery', 'DeliveryController@update_delivery');
 
+//slider
+Route::get('/manager-slider', 'SliderController@manager_slider');
+Route::get('/add-slider', 'SliderController@add_slider');
+Route::post('/insert-slider', 'SliderController@insert_slider');
+
+
+
+
 
 
 

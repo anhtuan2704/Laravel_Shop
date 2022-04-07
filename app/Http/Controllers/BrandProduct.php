@@ -16,7 +16,6 @@ class BrandProduct extends Controller
             return Redirect::to('dashboard');
         }else{
             return Redirect::to('admin')->send();
-
         }
     }
     public function addBrand(){
@@ -106,10 +105,8 @@ class BrandProduct extends Controller
                 $meta_title = $val ->brand_name;
                 $url_canonical = $request->url();
             }
-
             $brand_by_name = DB::table('tbl_brand')->where('tbl_brand.brand_id','=',$brand_id)
             ->limit(1)->get();
-    
             return view('pages.brand.show_brand')
             ->with('category', $cate_product)
             ->with('brand', $brand_product)
@@ -119,6 +116,5 @@ class BrandProduct extends Controller
             ->with('meta_keywords',$meta_keywords)
             ->with('meta_title',$meta_title)
             ->with('url_canonical',$url_canonical);
-   
     }
 }

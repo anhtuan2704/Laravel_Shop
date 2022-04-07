@@ -19,8 +19,10 @@ class OrderController extends Controller
         }
         $customer = Customer::where('customer_id', $customer_id)->first();
         $shipping = Shipping::where('shipping_id', $shipping_id)->first();
-        return view('admin.view_order')->with(compact('Order_details','Customer','Shipping'));
+        
+        $Order_details = Order_details::with('product')->where('order_code',$order_code)->get();
 
+        return view('admin.view_order')->with(compact('order_details', $order_details, 'customer',$customer,'shipping',$shipping));
     }
     public function manager_order(){
         $order = Order::orderby('created_at', 'DESC')->get();

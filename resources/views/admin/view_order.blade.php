@@ -83,5 +83,53 @@
   </div>
 </div>
 <br>
+<div class="table-agile-info">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Liệt kê chi tiết đơn hàng
+    </div>
+    
+    <div class="table-responsive">
+                          <?php
+                            $messages = Session::get('message');
+                            if($messages){
+                                echo '<span class="text-alert">',$messages. '</span>';
+                                Session::put('message',null);
+                            }
+                            ?>
+      <table class="table table-striped b-t b-light">
+        <thead>
+          <tr>
+            <th style="width:20px;">
+            </th>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Tổng tiền</th>
+            <th style="width:30px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+     @php
+     $i=0
+     @endphp
+     @foreach ($Order_details as $key => $details)
+     @php
+     $i++;
+     @endphp
+          <tr>
+            <td><i>{{$i}}</i></td>
+            <td>{{$details->product_name}}</td>
+            <td>{{$details->product_sale_quantity}}</td>
+            <td>{{$details->product_price}}</td>
+            <td>{{$details->product_price*$order_by_id->product_sale_quantity}}</td>
+           </tr>
+       @endforeach
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
 
 @endsection

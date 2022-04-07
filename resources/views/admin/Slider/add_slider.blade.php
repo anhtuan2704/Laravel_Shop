@@ -5,7 +5,7 @@
             <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                            Thêm thương hiệu
+                            Thêm Slider
                         </header>
                     <?php
                             $messages = Session::get('message');
@@ -16,31 +16,30 @@
                             ?>
                         <div class="panel-body">
                             <div class="position-center">
-                                <form role="form" action="{{URL::to('/save-brand')}}" method="post">
-                                    {{csrf_field()}}
+                                <form role="form" action="{{URL::to('/insert-slider')}}" method="post" enctype="multipart/form-data">
+                                   @csrf
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Tên thương hiệu</label>
-                                    <input type="text" name="brand_name" class="form-control" id="exampleInputEmail1" placeholder="Tên danh mục">
+                                    <label for="exampleInputEmail1">Tên Slider</label>
+                                    <input type="text" name="slider_name" class="form-control" id="exampleInputEmail1">
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Mô tả thương hiệu</label>
-                                    <textarea style="resize: none" rows="8"class="form-control" name="brand_desc"type="password" class="form-control" id="ckeditor" placeholder="Mô tả danh mục">
+                                    <label for="exampleInputEmail1">Hình ảnh</label>
+                                    <input type="file" name="silder_image" class="form-control" id="exampleInputEmail1" >
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Mô tả Slider</label>
+                                    <textarea style="resize: none" rows="8"class="form-control" name="slider_desc"type="password" class="form-control" id="ckeditor" placeholder="Mô tả danh mục">
 
                                     </textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Từ khóa danh mục</label>
-                                    <textarea style="resize: none" rows="8"class="form-control" name="meta_keywords"type="password" class="form-control" id="ckeditor1" placeholder="Mô tả danh mục">
-                                    </textarea>
-                                </div>
-                                <div class="form-group">
-                                <select name="brand_status" class="form-control input-sm m-bot15">
+                                <select name="slider_status" class="form-control input-sm m-bot15">
                                     <option value="1">Ẩn</option>
                                     <option value="0">Hiển thị</option>
                                  
                                 </select>
                                
-                                <button type="submit" name="add_brand_product" class="btn btn-info">Thêm Thương Hiệu</button>
+                                <button type="submit" name="add_slider" class="btn btn-info">Thêm Slider</button>
                             </form>
 </div>
 @endsection
