@@ -172,13 +172,13 @@
 							<div class="item active">
 							
 								<div class="col-sm-12">
-									<img src="{{('public/image/baner1.jpg')}}" class="girl img-responsive" alt="" />
+									<img src="{{('public/image/baner2.jpg')}}" class="girl img-responsive" alt="" />
 								
 								</div>
 							</div>
 							<div class="item">
 							<div class="col-sm-12">
-									<img src="{{('public/image/baner2.jpg')}}" class="girl img-responsive" alt="" />
+									<img src="{{('public/image/baner1.jpg')}}" class="girl img-responsive" alt="" />
 								
 								</div>
 								

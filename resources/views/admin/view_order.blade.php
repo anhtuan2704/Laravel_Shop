@@ -103,33 +103,66 @@
             <th style="width:20px;">
             </th>
             <th>Tên sản phẩm</th>
+            <th>Mã giảm giá</th>
             <th>Số lượng</th>
-            <th>Giá</th>
+            <th>Giá sản phẩm</th>
             <th>Tổng tiền</th>
             <th style="width:30px;"></th>
           </tr>
         </thead>
         <tbody>
      @php
-     $i=0
+     $i=0;
+     $total=0;
      @endphp
-     @foreach ($Order_details as $key => $details)
+     @foreach ($order_details as $key => $details)
      @php
      $i++;
+     $subtotal = $details->product_price*$details->product_sale_quantity;
+     $total += $subtotal;
      @endphp
           <tr>
             <td><i>{{$i}}</i></td>
             <td>{{$details->product_name}}</td>
+            <td>@if($details->product_coupon != 'no')
+                    {{$details->product_coupon}}</td>
+                    @else
+                    Không mã
+                @endif
+            </td>
             <td>{{$details->product_sale_quantity}}</td>
-            <td>{{$details->product_price}}</td>
-            <td>{{$details->product_price*$order_by_id->product_sale_quantity}}</td>
+            <td>{{number_format($details->product_price,0,',','.')}}</td>
+            <td>{{number_format($subtotal,0,',','.')}}</td>
+      
            </tr>
        @endforeach
+       <tr>
+       <td colspan="2">
+      @php
+      $total_coupon = 0;
+      @endphp
+       @if($coupon_condition==1)
+              @php
+              $total_after_coupon = ($total*$coupon_number)/100;
+              echo 'Giảm giá: '.number_format($coupon_number,0,',','.').'%'.'</br>';
+              echo 'Tiền giảm: '.number_format($total_after_coupon,0,',','.');
+              $total_coupon = $total - $total_after_coupon;
+              @endphp
+        @else
+              @php
+         echo 'Giảm giá: '.number_format($coupon_number,0,',','.').'k'.'</br>';
+              
+              $total_coupon = $total - $coupon_number;
+              @endphp
+        @endif
+        
+         <td>Thanh toán : {{number_format($total_coupon,0,',','.')}}</td>
+         </td>
+       </tr>
         </tbody>
 
       </table>
     </div>
   </div>
 </div>
-
 @endsection
