@@ -26,8 +26,8 @@
             <th>Giá sản phẩm</th>
             <th>Hình sản phẩm</th>
             <th>Loại sản phẩm</th>
-
             <th>Thương hiệu</th>           
+            <th>Hiển thị/Ẩn</th>           
             <th style="width:30px;"></th>
           </tr>
         </thead>

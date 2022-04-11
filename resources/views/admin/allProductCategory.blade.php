@@ -23,7 +23,7 @@
               </label>
             </th>
             <th>Tên danh mục</th>
-            <th>Hiển thị</th>
+            <th>Hiển thị/Ẩn</th>
             
             <th style="width:30px;"></th>
           </tr>
